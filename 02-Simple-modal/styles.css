@@ -1,0 +1,76 @@
+body {
+  background-color: #acbfa4;
+  height: 100vh;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+#modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: #f9e784;
+}
+
+#overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+#open-modal-btn {
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: #ff7f11;
+  border: 2px solid transparent;
+  color: #1f0303;
+  transition: all 0.2s ease-in-out;
+}
+
+#open-modal-btn:is(:hover, :focus-visible) {
+  background-color: #1f0303;
+  border: 2px solid #ff7f11;
+  color: #ff7f11;
+}
+#open-modal-btn:active {
+  background-color: transparent;
+}
+
+#modal.open {
+  display: block;
+  width: 50rem;
+  padding: 2rem 4rem;
+  text-align: center;
+  font-size: 3rem;
+
+  button {
+    padding: 1rem 4rem;
+    cursor: pointer;
+    background-color: #1f0303;
+    color: #dbe2d8;
+    font-size: 1.5rem;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  button:is(:hover, :focus-visible) {
+    background-color: #5f0a0a;
+    color: #eff3ee;
+  }
+  button:active {
+    background-color: #ff7f11;
+  }
+}
+
+#overlay.open {
+  display: block;
+}
