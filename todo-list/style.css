@@ -75,11 +75,12 @@ body {
 }
 .todo-list li {
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .todo-list li:hover {
   color: #d72638;
+  text-decoration: line-through;
 }
 
 .todo-list li:first-of-type {
