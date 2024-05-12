@@ -17,8 +17,6 @@ const errorDiv = document.querySelector(".errors");
 let detectedErrors = [];
 
 formEl.addEventListener("submit", (e) => {
-  e.preventDefault();
-
   //    TODO: Create an array to store all error messages and clear any old error messages
   detectedErrors = [];
   clearErrors();
@@ -31,15 +29,16 @@ formEl.addEventListener("submit", (e) => {
   console.log("Show the error div");
   if (detectedErrors.length > 0) {
     errorDiv.classList.add("show");
+    e.preventDefault();
   }
 
   //    TODO: If there are any errors then prevent the form from submitting and show the error messages
 
-  if (detectedErrors.length === 0) {
-    // hide the error div
-    errorDiv.classList.remove("show");
-    window.location.href = "./thank-you.html";
-  }
+  // if (detectedErrors.length === 0) {
+  //   // hide the error div
+  //   errorDiv.classList.remove("show");
+  //   window.location.href = "./thank-you.html";
+  // }
 });
 
 function checkErrors() {
