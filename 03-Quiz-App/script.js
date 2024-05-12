@@ -22,7 +22,7 @@ const alertEl = document.getElementById("alert");
 
 formEl.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("form is Submitted");
+  // console.log("form is Submitted");
   //    2. Get all selected answers (use the `checked` property on the input to determine if it is selected or not)
 
   const answersArray = Array.from(answersList);
@@ -39,13 +39,15 @@ formEl.addEventListener("submit", (e) => {
   const selectedAnswers = answersArray.filter((answer) => answer.checked);
   selectedAnswers.forEach((answer, index) => {
     // 4. For each correct answer add the class `correct` to the parent with the class `question-item` and remove the class `incorrect`.
-    if (answer.value === "true") {
-      questionsArray[index].classList.remove("incorrect");
-      questionsArray[index].classList.add("correct");
+    const isCorrect = answer.value === "true";
+    const questionItem = answer.closest(".question-item");
+    if (isCorrect) {
+      questionItem.classList.remove("incorrect");
+      questionItem.classList.add("correct");
     } else {
       // 5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
-      questionsArray[index].classList.remove("correct");
-      questionsArray[index].classList.add("incorrect");
+      questionItem.classList.remove("correct");
+      questionItem.classList.add("incorrect");
     }
   });
 
@@ -54,10 +56,13 @@ formEl.addEventListener("submit", (e) => {
     (answer) => answer.value === "true"
   );
 
-  if (allCorrectAnswers.length === selectedAnswers.length) {
+  if (
+    allCorrectAnswers.length === selectedAnswers.length &&
+    allCorrectAnswers.length === questionItems.length
+  ) {
     alertEl.classList.add("active");
     setTimeout(() => {
       alertEl.classList.remove("active");
-    }, "2000");
+    }, 2000);
   }
 });
